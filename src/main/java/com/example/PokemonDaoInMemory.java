@@ -3,11 +3,14 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class PokemonDaoInMemory implements PokemonDao {
 
+	@PostConstruct
 	private ArrayList<Type> llenarTipos() {
 		ArrayList<Type> tiposLocales = new ArrayList<Type>();
 
@@ -87,6 +90,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 		return todosLosTipos;
 	}
 
+	@PostConstruct
 	public ArrayList<Pokemon> llenarLista() {
 		ArrayList<Pokemon> pokemonesLocales = new ArrayList<>();
 		List<Type> tipoElectrico = new ArrayList<Type>();

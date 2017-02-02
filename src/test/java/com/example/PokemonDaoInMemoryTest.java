@@ -28,12 +28,13 @@ public class PokemonDaoInMemoryTest {
 	
 	@Test
 	public void tipeId3ShouldReturnFire(){
-		/*ArrayList<Type> arraySoloFire = new ArrayList<>();
+		ArrayList<Type> arraySoloFire = new ArrayList<>();
 		Type fireTest = new Type(3, "fire");
 		arraySoloFire.add(fireTest);
-		
-		Assert.assertEquals(arraySoloFire.get(0), pokemonDao.getTipos(3).get(0));*/
-		pokemonDao.getTipos(3);
+		ArrayList<Type> arraySoloFireActual  = new ArrayList<>();
+		arraySoloFireActual = pokemonDao.getTipos(3);
+		Assert.assertEquals(arraySoloFire.get(0).getType(), arraySoloFireActual.get(0).getType());
+		//pokemonDao.getTipos(3);
 	}
 	
 	
