@@ -54,12 +54,14 @@ public class PokemonDaoInMemory implements PokemonDao {
 
 	}
 
+	@Override
 	public ArrayList<Type> getTipos() {
 		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
 		todosLosTipos = llenarTipos();
 		return todosLosTipos;
 	}
 
+	@Override
 	public ArrayList<Type> getTipos(int id) {
 		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
 		todosLosTipos = llenarTipos();
@@ -75,6 +77,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 		return todosLosTipos;
 	}
 
+	@Override
 	public List<Type> getTipos(String typeName) {
 		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
 		todosLosTipos = llenarTipos();
@@ -117,6 +120,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 
 	}
 
+	@Override
 	public List<Pokemon> getPokes() {
 		ArrayList<Pokemon> todosLosPokemones = new ArrayList<Pokemon>();
 		todosLosPokemones = llenarLista();
@@ -124,6 +128,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 		return todosLosPokemones;
 	}
 
+	@Override
 	public ArrayList<Pokemon> getPokes(String id) {
 		ArrayList<Pokemon> todosLosPokes = new ArrayList<Pokemon>();
 		todosLosPokes = llenarLista();
@@ -139,6 +144,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 		return todosLosPokes;
 	}
 
+	@Override
 	public ArrayList<Pokemon> getPokes(int parseInt) {
 		ArrayList<Pokemon> todosLosPokes = new ArrayList<Pokemon>();
 		todosLosPokes = llenarLista();
