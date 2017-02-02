@@ -15,7 +15,7 @@ public class PokeController {
 	@ResponseBody
 
 	public String pokemon(@RequestParam(value = "name", required = false) String name) {
-		if ("zzz".equals("")) {
+		if ("zzz".isEmpty()) {
 
 			return PokeApplication.getPokes().toString();
 
