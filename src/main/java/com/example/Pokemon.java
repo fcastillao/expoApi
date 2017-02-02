@@ -11,7 +11,7 @@ public class Pokemon {
 	private int id = 0;
 	private String nombre = "null";
 	private List<Type> tipos = new ArrayList<>();
-	//private List<Type> debilidades = new ArrayList<>();
+	// private List<Type> debilidades = new ArrayList<>();
 	private int evolutionId = 0;
 	private String image = "";
 
@@ -21,7 +21,7 @@ public class Pokemon {
 		this.id = id;
 		this.nombre = nombre;
 		this.tipos = tipoElectrico;
-		//this.debilidades = debilidades;
+		// this.debilidades = debilidades;
 		this.evolutionId = evolutionId;
 		this.image = image;
 	}
@@ -38,9 +38,10 @@ public class Pokemon {
 		this.tipos = tipos;
 	}
 
-	/*public void setDebilidades(List<Type> debilidades) {
-		this.debilidades = debilidades;
-	}*/
+	/*
+	 * public void setDebilidades(List<Type> debilidades) { this.debilidades =
+	 * debilidades; }
+	 */
 
 	public void setEvolutionId(int evolutionId) {
 		this.evolutionId = evolutionId;
@@ -62,9 +63,9 @@ public class Pokemon {
 		return tipos;
 	}
 
-	/*public List<Type> getDebilidades() {
-		return debilidades;
-	}*/
+	/*
+	 * public List<Type> getDebilidades() { return debilidades; }
+	 */
 
 	public int getEvolutionId() {
 		return evolutionId;
@@ -83,7 +84,7 @@ public class Pokemon {
 		if (tipos.size() == 2)
 			cadena.append("\ntipos= ");
 		cadena.append(tipos);
-		//cadena.append("\ndebilidades= " + debilidades);
+		// cadena.append("\ndebilidades= " + debilidades);
 		if (evolutionId == 0)
 			cadena.append("\nNo evoluciona");
 		if (evolutionId != 0)
