@@ -14,8 +14,8 @@ public class PokeController {
 	@RequestMapping("/pokemon")
 	@ResponseBody
 
-	public String pokemon(@RequestParam(value = "name", required = false, defaultValue = "zzz") String name) {
-		if ("zzz".equals(name)) {
+	public String pokemon(@RequestParam(value = "name", required = false) String name) {
+		if ("zzz".equals("")) {
 
 			return PokeApplication.getPokes().toString();
 
