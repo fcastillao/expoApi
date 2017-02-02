@@ -5,14 +5,15 @@ import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 @SpringBootApplication
+
 public class PokeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PokeApplication.class, args);
-		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
-		todosLosTipos = llenarTipos();
+		
+
+		
 
 	}
 	
@@ -59,8 +60,8 @@ public class PokeApplication {
 
 	}
 
-	private static void llenarLista(ArrayList<Pokemon> todosLosPokemones) {
-
+	public static ArrayList<Pokemon> llenarLista() {
+		ArrayList<Pokemon> pokemonesLocales = new ArrayList<>();
 		List<Type> tipoElectrico = new ArrayList<Type>();
 		tipoElectrico.add(Type.getElectric());
 		ArrayList<Type> debilidadesElectricas = new ArrayList<Type>();
@@ -76,17 +77,55 @@ public class PokeApplication {
 
 		Pokemon pikachu = new Pokemon(1, "pikachu", tipoElectrico, debilidadesElectricas, 0,
 				"http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
-		todosLosPokemones.add(pikachu);
+		pokemonesLocales.add(pikachu);
 
 		Pokemon bulbasaur = new Pokemon(2, "bulbasaur", tipoHierba, debilidadesHierba, 0,
 				"http://cartoonbros.com/wp-content/uploads/2016/11/Bulbasaur-8.png");
-		todosLosPokemones.add(bulbasaur);
+		pokemonesLocales.add(bulbasaur);
+		return pokemonesLocales;
 
+	}
+	
+	public static ArrayList<Type> getTipos(){
+		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
+		todosLosTipos = llenarTipos();
+		return todosLosTipos;
+	}
+	
+	public static ArrayList<Type> getTipos(int id){
+		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
+		todosLosTipos = llenarTipos();
+		
+		for (Type type : todosLosTipos) {
+			if(type.getId()==id){
+				ArrayList<Type> t = new ArrayList<Type>();
+				t.add(type);
+				return t;
+			}
+			
+		}
+		return todosLosTipos;
 	}
 
 	public static List<Pokemon> getPokes() {
 		ArrayList<Pokemon> todosLosPokemones = new ArrayList<Pokemon>();
-		llenarLista(todosLosPokemones);
+		todosLosPokemones = llenarLista();
+	
 		return todosLosPokemones;
+	}
+	
+	public static ArrayList<Pokemon> getPokes(String id){
+		ArrayList<Pokemon> todosLosPokes = new ArrayList<Pokemon>();
+		todosLosPokes = llenarLista();
+		
+		for (Pokemon pokemon : todosLosPokes) {
+			if(pokemon.getNombre().equals(id)){
+				ArrayList<Pokemon> t = new ArrayList<>();
+				t.add(pokemon);
+				return t;
+			}
+			
+		}
+		return todosLosPokes;
 	}
 }

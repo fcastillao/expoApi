@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,34 +15,33 @@ public class PokeController {
 	@RequestMapping("/pokemon")
 	@ResponseBody
 
-	public String pokemon(@RequestParam(value = "name", required = false) String name) {
+	public ArrayList<Pokemon> pokemon(@RequestParam(value = "name", required = false) String name) {
 		
 		if (name==null) {
 
-			return PokeApplication.getPokes().toString();
+			return (ArrayList<Pokemon>) PokeApplication.getPokes();
 
 		}
 
-		return null;
+		return PokeApplication.getPokes(name);
 	}
 	
-	/*
+	
 	@RequestMapping("/pokemon/type")
 	@ResponseBody
 	
 	
-	// TODO cambiar metodo para mostrar tipos
 
-	public String pokemon(@RequestParam(value = "type", required = false) String type) {
+	public List<Type> type(@RequestParam(value = "type", required = false) String typeID) {
 		
-		if (type==null) {
+		if (typeID==null) {
 
-			return PokeApplication.getTypes().toString();
+			return PokeApplication.getTipos();
 
 		}
 
-		return null;
+		return PokeApplication.getTipos(Integer.parseInt(typeID));
 	}
 	
-	*/
+	
 }
