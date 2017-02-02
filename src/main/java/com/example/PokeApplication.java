@@ -128,4 +128,35 @@ public class PokeApplication {
 		}
 		return todosLosPokes;
 	}
+
+	public static ArrayList<Pokemon> getPokes(int parseInt) {
+		ArrayList<Pokemon> todosLosPokes = new ArrayList<Pokemon>();
+		todosLosPokes = llenarLista();
+		
+		for (Pokemon pokemon : todosLosPokes) {
+			if(pokemon.getId()==parseInt){
+				ArrayList<Pokemon> t = new ArrayList<>();
+				t.add(pokemon);
+				return t;
+			}
+			
+		}
+		return todosLosPokes;
+	}
+
+	public static List<Type> getTipos(String typeName) {
+		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
+		todosLosTipos = llenarTipos();
+		
+		for (Type type : todosLosTipos) {
+			if(type.getType().equals(typeName)){
+				ArrayList<Type> t = new ArrayList<Type>();
+				t.add(type);
+				return t;
+			}
+			
+		}
+		return todosLosTipos;
+	
+	}
 }
