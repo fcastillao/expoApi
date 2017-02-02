@@ -15,7 +15,8 @@ public class PokeController {
 	@ResponseBody
 
 	public String pokemon(@RequestParam(value = "name", required = false) String name) {
-		if ("zzz".isEmpty()) {
+		
+		if (name==null) {
 
 			return PokeApplication.getPokes().toString();
 
@@ -23,13 +24,7 @@ public class PokeController {
 
 		return null;
 	}
-/*
-	private String cadenaNombres() {
-		StringBuilder cadena = new StringBuilder();
-		for (Pokemon p : PokeApplication.getPokes()) {
-			cadena.append(p.toString());
 
-		}
-		return cadena.toString();
-	}*/
+	
+	
 }
