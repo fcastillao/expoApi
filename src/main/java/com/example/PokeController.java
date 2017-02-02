@@ -25,6 +25,19 @@ public class PokeController {
 		return null;
 	}
 
+	@RequestMapping("/pokemon/type")
+	@ResponseBody
+
+	public String pokemon(@RequestParam(value = "type", required = false) String type) {
+		
+		if (type==null) {
+
+			return PokeApplication.getTypes().toString();
+
+		}
+
+		return null;
+	}
 	
 	
 }

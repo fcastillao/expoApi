@@ -11,7 +11,10 @@ public class PokeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PokeApplication.class, args);
-
+		ArrayList<Type> todosLosTipos = new ArrayList();
+		
+	
+	
 	}
 
 	private static void llenarLista(ArrayList<Pokemon> todosLosPokemones) {
@@ -44,4 +47,30 @@ public class PokeApplication {
 		llenarLista(todosLosPokemones);
 		return todosLosPokemones;
 	}
+	
+	public llenarVectorTipos(ArrayList<Type> tiposLocal){
+	
+	 Type electric = new Type(1, "electric");
+	 Type normal = new Type(2, "normal");
+	 Type fire = new Type(3, "fire");
+	 Type fighting = new Type(4, "fighting");
+	 Type water = new Type(5, "water");
+	 Type flying = new Type(6, "flying");
+	 Type grass = new Type(7, "grass");
+	 Type poison = new Type(8, "poison");
+	 Type ground = new Type(9, "ground");
+	 Type psychic = new Type(10, "psychic");
+	 Type rock = new Type(11, "rock");
+	 Type ice = new Type(12, "ice");
+	 Type bug = new Type(13,"bug"); 
+	 Type dragon = new Type(14,"dragon"); 
+	 Type ghost = new Type(15,"ghost");
+	 Type dark = new Type(16,"dark"); 
+	 Type steel = new Type(17,"steel"); 
+	 Type fairy = new Type(18,"fairy");
+	 
+	 
+	 
+	
+	
 }
