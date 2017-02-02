@@ -3,6 +3,7 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,19 +14,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class PokeController {
 	ArrayList<Pokemon> pokes = new ArrayList<>();
+	
+	@Autowired
+	PokemonDao pokemonDao;
 
 	@RequestMapping("/pokemon")
 	@ResponseBody
 
 	public ArrayList<Pokemon> pokemon(@RequestParam(value = "name", required = false) String name) {
-
+		
 		if (name == null) {
 
-			return (ArrayList<Pokemon>) PokeApplication.getPokes();
+			return (ArrayList<Pokemon>) pokemonDao.getPokes();
 
 		}
 
-		return PokeApplication.getPokes(name);
+		return pokemonDao.getPokes(name);
 	}
 
 	@RequestMapping("/pokemon/id")
@@ -35,11 +39,11 @@ public class PokeController {
 
 		if (id == null) {
 
-			return (ArrayList<Pokemon>) PokeApplication.getPokes();
+			return (ArrayList<Pokemon>) pokemonDao.getPokes();
 
 		}
 
-		return PokeApplication.getPokes(Integer.parseInt(id));
+		return pokemonDao.getPokes(Integer.parseInt(id));
 	}
 
 	@RequestMapping("/pokemon/type")
@@ -49,11 +53,11 @@ public class PokeController {
 
 		if (typeName == null) {
 
-			return PokeApplication.getTipos();
+			return pokemonDao.getTipos();
 
 		}
 
-		return PokeApplication.getTipos(typeName);
+		return pokemonDao.getTipos(typeName);
 	}
 
 	@RequestMapping("/pokemon/type/id")
@@ -63,11 +67,11 @@ public class PokeController {
 
 		if (typeID == null) {
 
-			return PokeApplication.getTipos();
+			return pokemonDao.getTipos();
 
 		}
 
-		return PokeApplication.getTipos(Integer.parseInt(typeID));
+		return pokemonDao.getTipos(Integer.parseInt(typeID));
 	}
 
 }
