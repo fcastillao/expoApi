@@ -11,10 +11,6 @@ public class PokeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PokeApplication.class, args);
-		
-
-		
-		
 
 	}
 
@@ -33,14 +29,17 @@ public class PokeApplication {
 		debilidadesHierba.add(Type.flying);
 		debilidadesHierba.add(Type.psychic);
 
-		Pokemon pikachu = new Pokemon(1, "pikachu", tipoElectrico, debilidadesElectricas, 0, "http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
+		Pokemon pikachu = new Pokemon(1, "pikachu", tipoElectrico, debilidadesElectricas, 0,
+				"http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
 		todosLosPokemones.add(pikachu);
 
-		Pokemon bulbasaur = new Pokemon(2, "bulbasaur", tipoHierba, debilidadesHierba, 0, "http://cartoonbros.com/wp-content/uploads/2016/11/Bulbasaur-8.png");
+		Pokemon bulbasaur = new Pokemon(2, "bulbasaur", tipoHierba, debilidadesHierba, 0,
+				"http://cartoonbros.com/wp-content/uploads/2016/11/Bulbasaur-8.png");
 		todosLosPokemones.add(bulbasaur);
 
 	}
-	public static List<Pokemon> getPokes(){
+
+	public static List<Pokemon> getPokes() {
 		ArrayList<Pokemon> todosLosPokemones = new ArrayList<Pokemon>();
 		llenarLista(todosLosPokemones);
 		return todosLosPokemones;

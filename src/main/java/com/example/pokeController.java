@@ -1,7 +1,6 @@
 package com.example;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,7 @@ public class pokeController {
 	@ResponseBody
 
 	public String pokemon(@RequestParam(value = "name", required = false, defaultValue = "zzz") String name) {
-		if (name.equals("zzz")) {
+		if ("zzz".equals(name)) {
 
 			return PokeApplication.getPokes().toString();
 
@@ -24,7 +23,7 @@ public class pokeController {
 
 		return null;
 	}
-
+/*
 	private String cadenaNombres() {
 		StringBuilder cadena = new StringBuilder();
 		for (Pokemon p : PokeApplication.getPokes()) {
@@ -32,5 +31,5 @@ public class pokeController {
 
 		}
 		return cadena.toString();
-	}
+	}*/
 }
