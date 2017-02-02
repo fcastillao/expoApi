@@ -24,9 +24,13 @@ public class PokeController {
 
 		return null;
 	}
-
+	
+	/*
 	@RequestMapping("/pokemon/type")
 	@ResponseBody
+	
+	
+	// TODO cambiar metodo para mostrar tipos
 
 	public String pokemon(@RequestParam(value = "type", required = false) String type) {
 		
@@ -39,5 +43,5 @@ public class PokeController {
 		return null;
 	}
 	
-	
+	*/
 }

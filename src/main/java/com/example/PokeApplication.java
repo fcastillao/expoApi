@@ -11,26 +11,68 @@ public class PokeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PokeApplication.class, args);
-		ArrayList<Type> todosLosTipos = new ArrayList();
-		
+		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
+		todosLosTipos = llenarTipos();
+
+	}
 	
-	
+	private static ArrayList<Type> llenarTipos() {
+		ArrayList<Type> tiposLocales = new ArrayList<Type>();
+
+		Type electric = new Type(1, "electric");
+		tiposLocales.add(electric);
+		Type normal = new Type(2, "normal");
+		tiposLocales.add(normal);
+		Type fire = new Type(3, "fire");
+		tiposLocales.add(fire);
+		Type fighting = new Type(4, "fighting");
+		tiposLocales.add(fighting);
+		Type water = new Type(5, "water");
+		tiposLocales.add(water);
+		Type flying = new Type(6, "flying");
+		tiposLocales.add(flying);
+		Type grass = new Type(7, "grass");
+		tiposLocales.add(grass);
+		Type poison = new Type(8, "poison");
+		tiposLocales.add(poison);
+		Type ground = new Type(9, "ground");
+		tiposLocales.add(ground);
+		Type psychic = new Type(10, "psychic");
+		tiposLocales.add(psychic);
+		Type rock = new Type(11, "rock");
+		tiposLocales.add(rock);
+		Type ice = new Type(12, "ice");
+		tiposLocales.add(ice);
+		Type bug = new Type(13, "bug");
+		tiposLocales.add(bug);
+		Type dragon = new Type(14, "dragon");
+		tiposLocales.add(dragon);
+		Type ghost = new Type(15, "ghost");
+		tiposLocales.add(ghost);
+		Type dark = new Type(16, "dark");		
+		tiposLocales.add(dark);
+		Type steel = new Type(17, "steel");
+		tiposLocales.add(steel);
+		Type fairy = new Type(18, "fairy");
+		tiposLocales.add(fairy);
+		return tiposLocales;
+
 	}
 
 	private static void llenarLista(ArrayList<Pokemon> todosLosPokemones) {
 
 		List<Type> tipoElectrico = new ArrayList<Type>();
-		tipoElectrico.add(Type.electric);
+		tipoElectrico.add(Type.getElectric());
 		ArrayList<Type> debilidadesElectricas = new ArrayList<Type>();
-		debilidadesElectricas.add(Type.ground);
+		debilidadesElectricas.add(Type.getGround());
 
 		ArrayList<Type> tipoHierba = new ArrayList<Type>();
-		tipoHierba.add(Type.grass);
+		tipoHierba.add(Type.getGrass());
 		ArrayList<Type> debilidadesHierba = new ArrayList<Type>();
-		debilidadesHierba.add(Type.fire);
-		debilidadesHierba.add(Type.ice);
-		debilidadesHierba.add(Type.flying);
-		debilidadesHierba.add(Type.psychic);
+		debilidadesHierba.add(Type.getFire());
+		debilidadesHierba.add(Type.getIce());
+		debilidadesHierba.add(Type.getFlying());
+		debilidadesHierba.add(Type.getPsychic());
 
 		Pokemon pikachu = new Pokemon(1, "pikachu", tipoElectrico, debilidadesElectricas, 0,
 				"http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
@@ -47,30 +89,4 @@ public class PokeApplication {
 		llenarLista(todosLosPokemones);
 		return todosLosPokemones;
 	}
-	
-	public llenarVectorTipos(ArrayList<Type> tiposLocal){
-	
-	 Type electric = new Type(1, "electric");
-	 Type normal = new Type(2, "normal");
-	 Type fire = new Type(3, "fire");
-	 Type fighting = new Type(4, "fighting");
-	 Type water = new Type(5, "water");
-	 Type flying = new Type(6, "flying");
-	 Type grass = new Type(7, "grass");
-	 Type poison = new Type(8, "poison");
-	 Type ground = new Type(9, "ground");
-	 Type psychic = new Type(10, "psychic");
-	 Type rock = new Type(11, "rock");
-	 Type ice = new Type(12, "ice");
-	 Type bug = new Type(13,"bug"); 
-	 Type dragon = new Type(14,"dragon"); 
-	 Type ghost = new Type(15,"ghost");
-	 Type dark = new Type(16,"dark"); 
-	 Type steel = new Type(17,"steel"); 
-	 Type fairy = new Type(18,"fairy");
-	 
-	 
-	 
-	
-	
 }
