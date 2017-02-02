@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class pokeController {
+public class PokeController {
 	ArrayList<Pokemon> pokes = new ArrayList<>();
 
 	@RequestMapping("/pokemon")
