@@ -22,7 +22,8 @@ public class Pokemon {
 	private String nombre = "null";
 	@OneToMany
 	private List<Type> tipos = new ArrayList<>();
-	// private List<Type> debilidades = new ArrayList<>();
+	@OneToMany
+	private List<Type> debilidades = new ArrayList<>();
 	@Column
 	private int evolutionId = 0;
 	@Column
