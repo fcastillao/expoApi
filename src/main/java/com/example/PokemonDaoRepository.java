@@ -91,8 +91,6 @@ public class PokemonDaoRepository implements PokemonDao {
 		Type fairy = new Type();
 		fairy.setType("fairy");
 		typeRepository.saveAndFlush(fairy);
-		
-		
 
 	}
 
@@ -147,7 +145,7 @@ public class PokemonDaoRepository implements PokemonDao {
 		raichu.setTipos(typeRepository.findByType("electric"));
 		raichu.setDebilidades(typeRepository.findByType("ground"));
 		raichu.setNombre("raichu");
-		
+
 		Pokemon pikachu = new Pokemon();
 		raichu.setEvolution(raichu);
 		raichu.setImage("http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
@@ -158,14 +156,14 @@ public class PokemonDaoRepository implements PokemonDao {
 		Pokemon bulbasaur = new Pokemon();
 		bulbasaur.setNombre("bulbasaur");
 		bulbasaur.setTipos(typeRepository.findByType("grass"));
-		
+
 		ArrayList<Type> debilidadesHierba = new ArrayList<>();
 		debilidadesHierba.add(typeRepository.findByType("bug").get(0));
 		debilidadesHierba.add(typeRepository.findByType("fire").get(0));
 		debilidadesHierba.add(typeRepository.findByType("flying").get(0));
 		debilidadesHierba.add(typeRepository.findByType("ice").get(0));
 		debilidadesHierba.add(typeRepository.findByType("poison").get(0));
-		
+
 		bulbasaur.setDebilidades(debilidadesHierba);
 		bulbasaur.setEvolution(null);
 		bulbasaur.setImage("http://cartoonbros.com/wp-content/uploads/2016/11/Bulbasaur-8.png");
