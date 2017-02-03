@@ -29,6 +29,10 @@ public class Pokemon {
 	@Column
 	private String image = "";
 
+	public Pokemon() {
+
+	}
+
 	public Pokemon(int id, String nombre, List<Type> tipoElectrico, List<Type> debilidades, int evolutionId,
 			String image) {
 		super();

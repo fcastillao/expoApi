@@ -9,11 +9,10 @@ import javax.persistence.Id;
 @Entity
 public class Type {
 
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@Column
 	private String type;
 	// private int[] weakness = new int[18];
@@ -22,6 +21,10 @@ public class Type {
 		super();
 		this.id = id;
 		this.type = type;
+
+	}
+
+	public Type() {
 
 	}
 
