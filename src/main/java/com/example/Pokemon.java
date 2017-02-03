@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,8 +25,8 @@ public class Pokemon {
 	private List<Type> tipos = new ArrayList<>();
 	@OneToMany
 	private List<Type> debilidades = new ArrayList<>();
-	@Column
-	private int evolutionId = 0;
+	@OneToOne
+	private Pokemon evolution;
 	@Column
 	private String image = "";
 
@@ -33,14 +34,14 @@ public class Pokemon {
 
 	}
 
-	public Pokemon(int id, String nombre, List<Type> tipoElectrico, List<Type> debilidades, int evolutionId,
+	public Pokemon(int id, String nombre, List<Type> tipoElectrico, List<Type> debilidades, Pokemon evolution,
 			String image) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.tipos = tipoElectrico;
 		// this.debilidades = debilidades;
-		this.evolutionId = evolutionId;
+		this.evolution = evolution;
 		this.image = image;
 	}
 
@@ -60,8 +61,8 @@ public class Pokemon {
 		this.debilidades = debilidades;
 	}
 
-	public void setEvolutionId(int evolutionId) {
-		this.evolutionId = evolutionId;
+	public void setEvolution(Pokemon evolution) {
+		this.evolution = evolution;
 	}
 
 	public void setImage(String image) {
@@ -84,8 +85,8 @@ public class Pokemon {
 		return debilidades;
 	}
 
-	public int getEvolutionId() {
-		return evolutionId;
+	public Pokemon getEvolution() {
+		return evolution;
 	}
 
 	public String getImage() {
@@ -102,10 +103,10 @@ public class Pokemon {
 			cadena.append("\ntipos= ");
 		cadena.append(tipos);
 		// cadena.append("\ndebilidades= " + debilidades);
-		if (evolutionId == 0)
+		if (evolution == null)
 			cadena.append("\nNo evoluciona");
-		if (evolutionId != 0)
-			cadena.append("\nevolutionId=" + evolutionId);
+		if (evolution != null)
+			cadena.append("\nevolution=" + evolution);
 
 		cadena.append("\nimage=" + image + "\n");
 
