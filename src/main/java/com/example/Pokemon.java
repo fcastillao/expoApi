@@ -3,16 +3,29 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-
+@Entity
 public class Pokemon {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id = 0;
+	@Column
 	private String nombre = "null";
+	@OneToMany
 	private List<Type> tipos = new ArrayList<>();
 	// private List<Type> debilidades = new ArrayList<>();
+	@Column
 	private int evolutionId = 0;
+	@Column
 	private String image = "";
 
 	public Pokemon(int id, String nombre, List<Type> tipoElectrico, List<Type> debilidades, int evolutionId,
