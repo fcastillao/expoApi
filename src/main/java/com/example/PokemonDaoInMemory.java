@@ -97,20 +97,20 @@ public class PokemonDaoInMemory implements PokemonDao {
 	}
 
 	@PostConstruct
-	public ArrayList<Pokemon> llenarLista() {
+	public ArrayList<Pokemon> getPokemonList() {
 		ArrayList<Pokemon> pokemonesLocales = new ArrayList<>();
 		List<Type> tipoElectrico = new ArrayList<Type>();
-		tipoElectrico.add(Type.getElectric());
+		tipoElectrico.add(new Type(1, "electric"));
 		ArrayList<Type> debilidadesElectricas = new ArrayList<Type>();
-		debilidadesElectricas.add(Type.getGround());
+		debilidadesElectricas.add(new Type(9, "ground"));
 
 		ArrayList<Type> tipoHierba = new ArrayList<Type>();
-		tipoHierba.add(Type.getGrass());
+		tipoHierba.add(new Type(7, "grass"));
 		ArrayList<Type> debilidadesHierba = new ArrayList<Type>();
-		debilidadesHierba.add(Type.getFire());
-		debilidadesHierba.add(Type.getIce());
-		debilidadesHierba.add(Type.getFlying());
-		debilidadesHierba.add(Type.getPsychic());
+		debilidadesHierba.add(new Type(3, "fire"));
+		debilidadesHierba.add(new Type(12, "ice"));
+		debilidadesHierba.add(new Type(6, "flying"));
+		debilidadesHierba.add(new Type(10, "psychic"));
 
 		Pokemon pikachu = new Pokemon(1, "pikachu", tipoElectrico, debilidadesElectricas, 0,
 				"http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
@@ -126,7 +126,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 	@Override
 	public List<Pokemon> getPokes() {
 		ArrayList<Pokemon> todosLosPokemones = new ArrayList<Pokemon>();
-		todosLosPokemones = llenarLista();
+		todosLosPokemones = getPokemonList();
 		return todosLosPokemones;
 
 	}
@@ -135,7 +135,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 	@Override
 	public ArrayList<Pokemon> getPokes(String name) {
 		ArrayList<Pokemon> todosLosPokes = new ArrayList<Pokemon>();
-		todosLosPokes = llenarLista();
+		todosLosPokes = getPokemonList();
 
 		for (Pokemon pokemon : todosLosPokes) {
 			if (pokemon.getNombre().equals(name)) {
@@ -151,7 +151,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 	@Override
 	public ArrayList<Pokemon> getPokes(int parseInt) {
 		ArrayList<Pokemon> todosLosPokes = new ArrayList<Pokemon>();
-		todosLosPokes = llenarLista();
+		todosLosPokes = getPokemonList();
 
 		for (Pokemon pokemon : todosLosPokes) {
 			if (pokemon.getId() == parseInt) {
