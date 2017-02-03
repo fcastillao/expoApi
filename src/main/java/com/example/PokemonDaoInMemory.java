@@ -66,6 +66,9 @@ public class PokemonDaoInMemory implements PokemonDao {
 		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
 		todosLosTipos = llenarTipos();
 
+		if (id == 0) {
+			return todosLosTipos;
+		}
 		for (Type type : todosLosTipos) {
 			if (type.getId() == id) {
 				ArrayList<Type> t = new ArrayList<Type>();
@@ -74,11 +77,11 @@ public class PokemonDaoInMemory implements PokemonDao {
 			}
 
 		}
-		return todosLosTipos;
+		return null;
 	}
 
 	@Override
-	public List<Type> getTipos(String typeName) {
+	public ArrayList<Type> getTipos(String typeName) {
 		ArrayList<Type> todosLosTipos = new ArrayList<Type>();
 		todosLosTipos = llenarTipos();
 
@@ -90,7 +93,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 			}
 
 		}
-		return todosLosTipos;
+		return null;
 	}
 
 	@PostConstruct
@@ -124,24 +127,26 @@ public class PokemonDaoInMemory implements PokemonDao {
 	public List<Pokemon> getPokes() {
 		ArrayList<Pokemon> todosLosPokemones = new ArrayList<Pokemon>();
 		todosLosPokemones = llenarLista();
-
 		return todosLosPokemones;
+
 	}
 
+	// TODO revisar bien metodo de getPokes
+	// configurar bien returns para las pruebas
 	@Override
-	public ArrayList<Pokemon> getPokes(String id) {
+	public ArrayList<Pokemon> getPokes(String name) {
 		ArrayList<Pokemon> todosLosPokes = new ArrayList<Pokemon>();
 		todosLosPokes = llenarLista();
 
 		for (Pokemon pokemon : todosLosPokes) {
-			if (pokemon.getNombre().equals(id)) {
+			if (pokemon.getNombre().equals(name)) {
 				ArrayList<Pokemon> t = new ArrayList<>();
 				t.add(pokemon);
 				return t;
 			}
-
 		}
-		return todosLosPokes;
+
+		return null;
 	}
 
 	@Override
@@ -157,7 +162,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 			}
 
 		}
-		return todosLosPokes;
+		return new ArrayList<Pokemon>();
 	}
 
 }
