@@ -131,8 +131,7 @@ public class PokemonDaoInMemory implements PokemonDao {
 
 	}
 
-	// TODO revisar bien metodo de getPokes
-	// configurar bien returns para las pruebas
+	
 	@Override
 	public ArrayList<Pokemon> getPokes(String name) {
 		ArrayList<Pokemon> todosLosPokes = new ArrayList<Pokemon>();
