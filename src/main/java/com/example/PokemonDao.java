@@ -10,7 +10,7 @@ public interface PokemonDao {
 
 	ArrayList<Pokemon> getPokes(String name);
 
-	List<Type> getTipos(String typeName);
+	ArrayList<Type> getTipos(String typeName);
 
 	ArrayList<Pokemon> getPokes(int parseInt);
 
