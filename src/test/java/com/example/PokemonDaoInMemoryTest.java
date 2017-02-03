@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import oldstuff.PokemonDaoInMemory;
+
 public class PokemonDaoInMemoryTest {
 	// TODO do decent test
 	// 3052491754
