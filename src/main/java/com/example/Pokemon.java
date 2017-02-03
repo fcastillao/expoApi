@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 public class Pokemon {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id = 0;
 	@Column
 	private String nombre = "null";
@@ -52,10 +52,9 @@ public class Pokemon {
 		this.tipos = tipos;
 	}
 
-	/*
-	 * public void setDebilidades(List<Type> debilidades) { this.debilidades =
-	 * debilidades; }
-	 */
+	public void setDebilidades(List<Type> debilidades) {
+		this.debilidades = debilidades;
+	}
 
 	public void setEvolutionId(int evolutionId) {
 		this.evolutionId = evolutionId;
@@ -77,9 +76,9 @@ public class Pokemon {
 		return tipos;
 	}
 
-	/*
-	 * public List<Type> getDebilidades() { return debilidades; }
-	 */
+	public List<Type> getDebilidades() {
+		return debilidades;
+	}
 
 	public int getEvolutionId() {
 		return evolutionId;
