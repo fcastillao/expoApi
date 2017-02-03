@@ -6,7 +6,7 @@ import java.util.List;
 public interface PokemonDao {
 	List<Type> getTipos();
 
-	List<Pokemon> getPokes();
+	ArrayList<Pokemon> getPokes();
 
 	ArrayList<Pokemon> getPokes(String name);
 

@@ -23,7 +23,7 @@ public class PokeController {
 
 	@RequestMapping("/pokemon")
 	@ResponseBody
-	// TODO arreglar como tipo
+	
 	public ResponseEntity<String> pokemon(@RequestParam(value = "name", required = false) String name) {
 
 		if (name == null) {

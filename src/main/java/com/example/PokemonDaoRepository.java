@@ -13,9 +13,10 @@ public class PokemonDaoRepository implements PokemonDao {
 
 	@Autowired
 	PokemonRepository pokemonRepository;
-
 	@Autowired
 	TypeRepository typeRepository;
+
+	
 
 	@PostConstruct
 	private void llenarTipos() {
@@ -173,9 +174,9 @@ public class PokemonDaoRepository implements PokemonDao {
 	}
 
 	@Override
-	public List<Pokemon> getPokes() {
-		List<Pokemon> todosLosPokemones = new ArrayList<Pokemon>();
-		todosLosPokemones = pokemonRepository.findAll();
+	public ArrayList<Pokemon> getPokes() {
+		ArrayList<Pokemon> todosLosPokemones = new ArrayList<Pokemon>();
+		todosLosPokemones = (ArrayList<Pokemon>) pokemonRepository.findAll();
 		return todosLosPokemones;
 
 	}
