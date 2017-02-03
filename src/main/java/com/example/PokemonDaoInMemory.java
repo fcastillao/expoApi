@@ -112,11 +112,17 @@ public class PokemonDaoInMemory implements PokemonDao {
 		debilidadesHierba.add(new Type(6, "flying"));
 		debilidadesHierba.add(new Type(10, "psychic"));
 
-		Pokemon pikachu = new Pokemon(1, "pikachu", tipoElectrico, debilidadesElectricas, 0,
+		
+
+		Pokemon raichu = new Pokemon(2, "raichu", tipoElectrico, debilidadesElectricas, null,
+				"TODO");
+		pokemonesLocales.add(raichu);
+		
+		Pokemon pikachu = new Pokemon(1, "pikachu", tipoElectrico, debilidadesElectricas,raichu ,
 				"http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
 		pokemonesLocales.add(pikachu);
 
-		Pokemon bulbasaur = new Pokemon(2, "bulbasaur", tipoHierba, debilidadesHierba, 0,
+		Pokemon bulbasaur = new Pokemon(3, "bulbasaur", tipoHierba, debilidadesHierba, null,
 				"http://cartoonbros.com/wp-content/uploads/2016/11/Bulbasaur-8.png");
 		pokemonesLocales.add(bulbasaur);
 		return pokemonesLocales;
