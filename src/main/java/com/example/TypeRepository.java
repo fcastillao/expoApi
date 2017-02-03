@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TypeRepository extends JpaRepository<Type, Long> {
 
-    List<Type> findById(int id);
+    Type findById(int id);
+    
+    List<Type> findByType(String Type);
     
 }
