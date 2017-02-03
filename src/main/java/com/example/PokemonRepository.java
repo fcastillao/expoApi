@@ -2,9 +2,9 @@ package com.example;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PokemonRepository extends CrudRepository<Pokemon, Long> {
+public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 
     List<Pokemon> findById(int id);
     
