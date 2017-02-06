@@ -3,6 +3,9 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface PokemonDao {
 
 	List<Type> getTipos();
