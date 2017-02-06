@@ -3,13 +3,19 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -18,13 +24,26 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Pokemon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id = 0;
+	private int pokemonId;
 	@Column
 	private String nombre = "null";
-	@OneToMany
-	private List<Type> tipos = new ArrayList<>();
-	@OneToMany
+	
+	
+	
+	@Autowired
+	@ManyToMany(targetEntity = Type.class, cascade = {CascadeType.MERGE})
+    @JoinTable(name = "pokemonHasType", joinColumns = {@JoinColumn(name="pokemon_id")}, inverseJoinColumns = {@JoinColumn(name = "type_id")})
+    private List<Type> types;
+	
+	
+	@Autowired
+	@ManyToMany(targetEntity = Type.class, cascade = {CascadeType.MERGE})
+	@JoinTable(name = "pokemonHasWeakness", joinColumns = {@JoinColumn(name="Pokemon_id")}, inverseJoinColumns = {@JoinColumn(name="weakness_id")})
 	private List<Type> debilidades = new ArrayList<>();
+	
+	
+	
+	
 	@OneToOne
 	private Pokemon evolution;
 	@Column
@@ -34,19 +53,8 @@ public class Pokemon {
 
 	}
 
-	public Pokemon(int id, String nombre, List<Type> tipoElectrico, List<Type> debilidades, Pokemon evolution,
-			String image) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.tipos = tipoElectrico;
-		// this.debilidades = debilidades;
-		this.evolution = evolution;
-		this.image = image;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setPokemonId(int id) {
+		this.pokemonId = id;
 	}
 
 	public void setNombre(String nombre) {
@@ -54,7 +62,7 @@ public class Pokemon {
 	}
 
 	public void setTipos(List<Type> tipos) {
-		this.tipos = tipos;
+		this.types = tipos;
 	}
 
 	public void setDebilidades(List<Type> debilidades) {
@@ -69,8 +77,8 @@ public class Pokemon {
 		this.image = image;
 	}
 
-	public int getId() {
-		return id;
+	public int getPokemonId() {
+		return pokemonId;
 	}
 
 	public String getNombre() {
@@ -78,7 +86,7 @@ public class Pokemon {
 	}
 
 	public List<Type> getTipos() {
-		return tipos;
+		return types;
 	}
 
 	public List<Type> getDebilidades() {
@@ -97,21 +105,39 @@ public class Pokemon {
 	public String toString() {
 		StringBuilder cadena = new StringBuilder();
 		cadena.append("Pokemon = " + nombre);
-		if (tipos.size() == 1)
+		if (types.size() == 1)
 			cadena.append(" \ntipo =");
-		if (tipos.size() == 2)
+		if (types.size() == 2)
 			cadena.append("\ntipos= ");
-		cadena.append(tipos);
-		// cadena.append("\ndebilidades= " + debilidades);
+		cadena.append(types.toString());
+		cadena.append("\ndebilidades= " + debilidades.toString());
 		if (evolution == null)
 			cadena.append("\nNo evoluciona");
 		if (evolution != null)
-			cadena.append("\nevolution=" + evolution);
+			cadena.append("\nevolution=" + evolution.getNombre());
 
 		cadena.append("\nimage=" + image + "\n");
 
 		return cadena.toString();
 
+	}
+
+	
+	public void addToTypes(Type type) {
+		this.types.add(type);
+		
+	}
+
+	public void addToWeakness(Type type) {
+		this.debilidades.add(type);
+		
+	}
+
+	public void setTipos(Type findByTypeName) {
+		ArrayList<Type> types = new ArrayList<Type>();
+		types.add(findByTypeName);
+		this.types=types;
+		
 	}
 
 }

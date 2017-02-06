@@ -92,6 +92,8 @@ public class PokemonDaoRepository implements PokemonDao {
 		Type fairy = new Type();
 		fairy.setType("fairy");
 		typeRepository.saveAndFlush(fairy);
+		
+		
 
 	}
 
@@ -140,30 +142,31 @@ public class PokemonDaoRepository implements PokemonDao {
 
 	@PostConstruct
 	public void fillPokemonRepository() {
+		
 		Pokemon raichu = new Pokemon();
 		raichu.setEvolution(null);
 		raichu.setImage("TODO");
-		raichu.setTipos(typeRepository.findByType("electric"));
-		raichu.setDebilidades(typeRepository.findByType("ground"));
+		raichu.setTipos(typeRepository.findByTypeName("electric"));
+		raichu.addToWeakness(typeRepository.findByTypeName("ground"));;
 		raichu.setNombre("raichu");
 
 		Pokemon pikachu = new Pokemon();
-		raichu.setEvolution(raichu);
-		raichu.setImage("http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
-		raichu.setTipos(typeRepository.findByType("electric"));
-		raichu.setDebilidades(typeRepository.findByType("ground"));
-		raichu.setNombre("pikachu");
+		pikachu.setEvolution(raichu);
+		pikachu.setImage("http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
+		pikachu.setTipos(typeRepository.findByTypeName("electric"));;
+		pikachu.addToWeakness(typeRepository.findByTypeName("ground"));
+		pikachu.setNombre("pikachu");
 
 		Pokemon bulbasaur = new Pokemon();
 		bulbasaur.setNombre("bulbasaur");
-		bulbasaur.setTipos(typeRepository.findByType("grass"));
+		bulbasaur.setTipos(typeRepository.findByTypeName("grass"));
 
 		ArrayList<Type> debilidadesHierba = new ArrayList<>();
-		debilidadesHierba.add(typeRepository.findByType("bug").get(0));
-		debilidadesHierba.add(typeRepository.findByType("fire").get(0));
-		debilidadesHierba.add(typeRepository.findByType("flying").get(0));
-		debilidadesHierba.add(typeRepository.findByType("ice").get(0));
-		debilidadesHierba.add(typeRepository.findByType("poison").get(0));
+		debilidadesHierba.add(typeRepository.findByTypeName("bug"));
+		debilidadesHierba.add(typeRepository.findByTypeName("fire"));
+		debilidadesHierba.add(typeRepository.findByTypeName("flying"));
+		debilidadesHierba.add(typeRepository.findByTypeName("ice"));
+		debilidadesHierba.add(typeRepository.findByTypeName("poison"));
 
 		bulbasaur.setDebilidades(debilidadesHierba);
 		bulbasaur.setEvolution(null);
@@ -203,7 +206,7 @@ public class PokemonDaoRepository implements PokemonDao {
 		todosLosPokes = pokemonRepository.findAll();
 
 		for (Pokemon pokemon : todosLosPokes) {
-			if (pokemon.getId() == parseInt) {
+			if (pokemon.getPokemonId() == parseInt) {
 				ArrayList<Pokemon> t = new ArrayList<>();
 				t.add(pokemon);
 				return t;

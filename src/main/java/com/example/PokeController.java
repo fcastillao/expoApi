@@ -47,10 +47,22 @@ public class PokeController {
 
 	@RequestMapping("/pokemon/id")
 	@ResponseBody
-	// TODO arreglar como tipo
-	public ArrayList<Pokemon> pokemonID(@RequestParam(value = "id", required = false) String id) {
-		return pokemonDao.getPokes(Integer.parseInt(id));
+	
+	public ResponseEntity<String> pokemonID(@RequestParam(value = "id", required = false) String pokemonId) {
+		if (pokemonId == null) {
+
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+					"debe digitar un ID para buscar el pokemon<br>escriba en la URL lo siguiente:<br>?id=X<br><br>donde x es la ID del pokemon que quiere buscar<br>0 para todos los pokes");
+		}
+
+		if (Integer.parseInt(pokemonId) < 0 || Integer.parseInt(pokemonId) > 151) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+					.body("no existe dicho tipo <br>use un id entre 1 y 151 (inclusivo)<br> 0 para todos los pokemones");
+		}
+		return ResponseEntity.ok(pokemonDao.getPokes((Integer.parseInt(pokemonId))).toString());
 	}
+
+	
 
 	@RequestMapping("/pokemon/type")
 	@ResponseBody

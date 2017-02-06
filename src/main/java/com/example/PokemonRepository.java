@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 
-	List<Pokemon> findById(int id);
+	List<Pokemon> findByPokemonId(int pokemonId);
 
 }
