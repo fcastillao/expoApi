@@ -1,8 +1,6 @@
 package com.example;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 
@@ -15,25 +13,24 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class PokemonDaoRepositoryTest{
-	
+public class PokemonDaoRepositoryTest {
+
 	@Autowired
-    private TestEntityManager entityManager;
-	
+	private TestEntityManager entityManager;
+
 	@Autowired
 	PokemonRepository pokemonRepository;
-	
+
 	@Autowired
 	TypeRepository typeRepository;
-	
 
 	@Test
 	public void savePikachu() {
-		
+
 		Pokemon pikachu = new Pokemon();
 		pikachu.setNombre("pikachu");
-		Type electric = new Type(1,"electric");
-		Type ground = new Type(2,"ground");
+		Type electric = new Type(1, "electric");
+		Type ground = new Type(2, "ground");
 		ArrayList<Type> grounds = new ArrayList<>();
 		grounds.add(ground);
 		pikachu.setTipos(electric);
@@ -41,9 +38,9 @@ public class PokemonDaoRepositoryTest{
 		pikachu.setImage("TODO");
 		entityManager.persist(pikachu);
 		pikachu.setPokemonId(1);
-		
+
 		assertEquals(pikachu, pokemonRepository.findByNombre("pikachu"));
-		
+
 	}
 
 }
