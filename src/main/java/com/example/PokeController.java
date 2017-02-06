@@ -23,7 +23,7 @@ public class PokeController {
 
 	@RequestMapping("/pokemon")
 	@ResponseBody
-	
+
 	public ResponseEntity<String> pokemon(@RequestParam(value = "name", required = false) String name) {
 
 		if (name == null) {
@@ -35,7 +35,7 @@ public class PokeController {
 		if (b) {
 			String sb = "no puede haber numeros en el nombre";
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(sb);
-			
+
 		}
 		if (pokemonDao.getPokes(name) == null) {
 			String sb = "no existe dicho pokemon<br><br>" + "*recomendación*<br>" + "-revise la escritura<br>";
@@ -47,7 +47,7 @@ public class PokeController {
 
 	@RequestMapping("/pokemon/id")
 	@ResponseBody
-	
+
 	public ResponseEntity<String> pokemonID(@RequestParam(value = "id", required = false) String pokemonId) {
 		if (pokemonId == null) {
 
@@ -56,13 +56,11 @@ public class PokeController {
 		}
 
 		if (Integer.parseInt(pokemonId) < 0 || Integer.parseInt(pokemonId) > 151) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-					.body("no existe dicho tipo <br>use un id entre 1 y 151 (inclusivo)<br> 0 para todos los pokemones");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+					"no existe dicho tipo <br>use un id entre 1 y 151 (inclusivo)<br> 0 para todos los pokemones");
 		}
 		return ResponseEntity.ok(pokemonDao.getPokes((Integer.parseInt(pokemonId))).toString());
 	}
-
-	
 
 	@RequestMapping("/pokemon/type")
 	@ResponseBody

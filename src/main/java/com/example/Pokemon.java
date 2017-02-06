@@ -6,13 +6,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,23 +26,19 @@ public class Pokemon {
 	private int pokemonId;
 	@Column
 	private String nombre = "null";
-	
-	
-	
+
 	@Autowired
-	@ManyToMany(targetEntity = Type.class, cascade = {CascadeType.MERGE})
-    @JoinTable(name = "pokemonHasType", joinColumns = {@JoinColumn(name="pokemon_id")}, inverseJoinColumns = {@JoinColumn(name = "type_id")})
-    private List<Type> types;
-	
-	
+	@ManyToMany(targetEntity = Type.class, cascade = { CascadeType.MERGE })
+	@JoinTable(name = "pokemonHasType", joinColumns = { @JoinColumn(name = "pokemon_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "type_id") })
+	private List<Type> types;
+
 	@Autowired
-	@ManyToMany(targetEntity = Type.class, cascade = {CascadeType.MERGE})
-	@JoinTable(name = "pokemonHasWeakness", joinColumns = {@JoinColumn(name="Pokemon_id")}, inverseJoinColumns = {@JoinColumn(name="weakness_id")})
+	@ManyToMany(targetEntity = Type.class, cascade = { CascadeType.MERGE })
+	@JoinTable(name = "pokemonHasWeakness", joinColumns = { @JoinColumn(name = "Pokemon_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "weakness_id") })
 	private List<Type> debilidades = new ArrayList<>();
-	
-	
-	
-	
+
 	@OneToOne
 	private Pokemon evolution;
 	@Column
@@ -122,22 +117,21 @@ public class Pokemon {
 
 	}
 
-	
 	public void addToTypes(Type type) {
 		this.types.add(type);
-		
+
 	}
 
 	public void addToWeakness(Type type) {
 		this.debilidades.add(type);
-		
+
 	}
 
 	public void setTipos(Type findByTypeName) {
 		ArrayList<Type> types = new ArrayList<Type>();
 		types.add(findByTypeName);
-		this.types=types;
-		
+		this.types = types;
+
 	}
 
 }
