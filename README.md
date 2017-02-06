@@ -9,3 +9,5 @@ usando:
   
   --------
   JPA
+  -----------
+  Heroku for Cloud Deployment
