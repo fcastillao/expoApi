@@ -56,7 +56,7 @@ public class PokemonDaoRepository implements PokemonDao {
 		typeRepository.saveAndFlush(ground);
 
 		Type psychic = new Type();
-		psychic.setType("spychic");
+		psychic.setType("psychic");
 		typeRepository.saveAndFlush(psychic);
 
 		Type rock = new Type();
@@ -145,14 +145,14 @@ public class PokemonDaoRepository implements PokemonDao {
 		raichu.setImage("TODO");
 		raichu.setTipos(typeRepository.findByTypeName("electric"));
 		raichu.addToWeakness(typeRepository.findByTypeName("ground"));
-		;
+
 		raichu.setNombre("raichu");
 
 		Pokemon pikachu = new Pokemon();
 		pikachu.setEvolution(raichu);
 		pikachu.setImage("http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg");
 		pikachu.setTipos(typeRepository.findByTypeName("electric"));
-		;
+
 		pikachu.addToWeakness(typeRepository.findByTypeName("ground"));
 		pikachu.setNombre("pikachu");
 

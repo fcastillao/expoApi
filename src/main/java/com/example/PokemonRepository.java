@@ -8,4 +8,6 @@ public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 
 	List<Pokemon> findByPokemonId(int pokemonId);
 
+	Object findByNombre(String nombre);
+
 }
