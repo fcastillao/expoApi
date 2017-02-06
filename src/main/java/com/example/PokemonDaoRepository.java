@@ -17,7 +17,7 @@ public class PokemonDaoRepository implements PokemonDao {
 	TypeRepository typeRepository;
 
 	
-
+	
 	@PostConstruct
 	private void llenarTipos() {
 
@@ -93,7 +93,7 @@ public class PokemonDaoRepository implements PokemonDao {
 		fairy.setType("fairy");
 		typeRepository.saveAndFlush(fairy);
 		
-		
+		this.fillPokemonRepository();
 
 	}
 
@@ -140,7 +140,6 @@ public class PokemonDaoRepository implements PokemonDao {
 		return null;
 	}
 
-	@PostConstruct
 	public void fillPokemonRepository() {
 		
 		Pokemon raichu = new Pokemon();
